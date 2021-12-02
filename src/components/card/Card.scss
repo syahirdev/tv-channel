@@ -10,6 +10,11 @@
   margin: 20px;
   padding: 20px;
   text-decoration: none;
+  transition: all .2s ease;
+
+  &:hover {
+    border-color: $primaryColor;
+  }
 
   .cardTop {
     display: flex;
