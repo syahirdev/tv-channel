@@ -1,3 +1,58 @@
+@import "../../Global";
+
 .topbar {
-  background-color: yellowgreen;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 120px;
+  background-color: $lightColor;
+  color: $textColor;
+
+  .topbarText {
+    font-weight: 400;
+    font-size: 18px;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      filter: brightness(150%);
+    }
+  }
+
+  .topbarLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    .topbarLogo {
+      width: 100px;
+      height: 40px;
+    }
+
+  }
+
+  .topbarRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    .topbarButton {
+      color: $lightColor;
+      background-color: $primaryColor;
+      padding: 10px 20px;
+      border-radius: 100px;
+      transition: $transition;
+
+      &:hover {
+        filter: brightness(120%);
+      }
+    }
+
+    .topbarIcon {
+      color: $textColor;
+      font-size: 25px;
+    }
+  }
 }
