@@ -1,14 +1,12 @@
 import "./Channel.scss";
 import { Card } from "../card/Card";
 
-export const Channel = () => {
+export const Channel = ({data}: any) => {
     return (
         <div className="channel">
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
+            {data && data.map((item: any) => (
+                <Card key={item.id} item={item}/>
+            ))}
         </div>
     );
 };
