@@ -7,73 +7,37 @@ import axios from "axios";
 import { Header } from "../../components/header/Header";
 
 export const Home = () => {
-    const [data, setData] = useState([]);
-    const [filteredData, setFilteredData] = useState(null);
+    const [data, setData] = useState<Array<any>>([]);
+    const [filteredData, setFilteredData] = useState<Array<any>>();
     const searchParams = ["title", "stbNumber"];
-    const filterCategoryParams = ["category", "language"];
-    const [filterParams, setFilterParams] = useState<Array<string>>([]);
+    const filterParams = ["category", "language"];
+    const [currentCategory, setCurrentCategory] = useState<string>("");
 
-    const HandleSearch = (e: string) => {
+    const HandleSearch = (e: any) => {
         const newData = data.filter((item) => {
             return searchParams.some((newItem) => {
-                // @ts-ignore
                 return (item[newItem].toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1);
             });
         });
         if (newData) {
-            // @ts-ignore
             setFilteredData(newData);
         }
     };
 
     const HandleCategory = (e: string) => {
-        const newData = data.filter((item) => {
-            return filterCategoryParams.some((newItem) => {
-                // @ts-ignore
-                return (item[newItem].toString().toLowerCase().indexOf(e.toLowerCase()) !== -1);
+        if (currentCategory === e || "All" === e) {
+            setFilteredData(undefined);
+        } else {
+            const newData = data.filter((item) => {
+                return filterParams.some((newItem) => {
+                    return (item[newItem].toString().toLowerCase().indexOf(e.toLowerCase()) !== -1);
+                });
             });
-        });
-        if (newData) {
-            // @ts-ignore
-            setFilteredData(newData);
+            if (newData) {
+                setFilteredData(newData);
+                setCurrentCategory(e);
+            }
         }
-        // console.log(e);
-        //
-        // //  Add to filter
-        // if (!filterParams.includes(e)) {
-        //     setFilterParams([...filterParams, e]);
-        //     //-------------
-        //     const newData = data.filter((item) => {
-        //         return filterCategoryParams.some((newItem) => {
-        //             // @ts-ignore
-        //             console.log(newItem);
-        //             console.log(item);
-        //
-        //
-        //             // return (item[newItem].toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1);
-        //         })
-        //     });
-        //     if (newData) {
-        //         // @ts-ignore
-        //         setFilteredData(newData);
-        //     }
-        //     //-------------
-        //     //  Remove to filter
-        // } else {
-        //     setFilterParams(filterParams.filter((filter) => filter !== e));
-        // }
-
-        // console.log(temp);
-        // const newData = data.filter((item) => {
-        //     return filterParams.some((newItem) => {
-        //         // @ts-ignore
-        //         return (item[newItem].toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1);
-        //     });
-        // })
-        // if (newData) {
-        //     // @ts-ignore
-        //     setFilteredData(newData);
-        // }
     };
 
     useEffect(() => {
