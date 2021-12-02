@@ -3,11 +3,13 @@ import moment from "moment";
 import { useState } from "react";
 
 export const ChannelDetail = ({data}: any) => {
+    const [isActive, setIsActive] = useState(0);
     const [channelList, setChannelList] = useState([
         data.schedule && Object.values(data?.schedule)[0]
     ]);
 
     const HandleClick = (item: any) => {
+        setIsActive(item);
         setChannelList([Object.values(data?.schedule)[item]]);
     };
 
@@ -30,7 +32,8 @@ export const ChannelDetail = ({data}: any) => {
                     {data.schedule && Object.entries(data.schedule).map((item: any, index: number) => {
                         let m = moment.utc(item[0], "YYYY-MM-DD");
                         return (
-                            <div className="channelDate" key={item[0]} onClick={() => HandleClick(index)}>
+                            <div className={`channelDate ${isActive === index && "isActive"}`} key={item[0]}
+                                 onClick={() => HandleClick(index)}>
                                 {index === 0 ? "TODAY" : m.format("ddd").toUpperCase()}
                             </div>
                         );
@@ -42,7 +45,7 @@ export const ChannelDetail = ({data}: any) => {
                         return (
                             <div className="channelWrapper">
                                 <div className="channelTime">
-                                    {index === 0 ? "On Now" : m.format("LT")}
+                                    {(index === 0 && isActive === 0) ? "On Now" : m.format("LT")}
                                 </div>
                                 <div className="channelTitle">{item.title}</div>
                             </div>
