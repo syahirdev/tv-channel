@@ -1,9 +1,10 @@
 import "./Card.scss";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 export const Card = ({item}: any) => {
     return (
-        <div className="card">
+        <Link className="card" to={`/${item.id}`}>
             <div className="cardTop">
                 <div className="channelBadge">CH {item.stbNumber}</div>
                 <img src={item.imageUrl} alt="tv-logo" className="cardImg"/>
@@ -20,6 +21,6 @@ export const Card = ({item}: any) => {
                     );
                 })}
             </div>
-        </div>
+        </Link>
     );
 };
