@@ -1,3 +1,13 @@
+@import "../../Global";
+
 .header {
-  background-color: cornflowerblue;
+  height: 350px;
+  background-color: $lightColor;
+  overflow: hidden;
+
+  .headerBackground {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+  }
 }

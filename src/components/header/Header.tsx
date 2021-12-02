@@ -1,9 +1,9 @@
-import './Header.scss'
+import "./Header.scss";
 
-export const Header =()=> {
+export const Header = () => {
     return (
         <div className="header">
-            header
+            <img src="./assets/header.png" alt="" className='headerBackground'/>
         </div>
-    )
-}
+    );
+};

@@ -1,0 +1,68 @@
+@import "../../Global";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 250px;
+  border: 1px solid $cardBorderColor;
+  border-radius: 15px;
+  margin: 20px;
+  padding: 20px;
+
+
+  .cardTop {
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    .channelBadge {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 10px;
+      padding: 7px 10px;
+      background-color: $textColor;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 500;
+      color: $lightColor;
+
+    }
+
+    .cardImg {
+      padding: 25px;
+      background-color: $lightColor;
+    }
+  }
+
+  .cardBottom {
+    margin-top: -5px;
+    padding-top: 10px;
+
+    .cardTitle {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .cardContainer {
+      display: flex;
+      gap: 10px;
+      margin: 5px 0;
+      color: $textSecondaryColor;
+
+      .channelTimeFirst, .channelTitleFirst {
+        color: $textColor;
+        font-weight: 500;
+      }
+
+      .channelTime {
+        width: 80px;
+      }
+
+      .channelTitle {
+
+      }
+    }
+  }
+}

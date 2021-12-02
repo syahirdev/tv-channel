@@ -1,3 +1,10 @@
+@import "../../Global";
+
 .channel {
-  background-color: cornsilk;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 100px;
+  background-color: $lightColor;
 }
