@@ -1,0 +1,63 @@
+.channelDetail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 100px;
+  gap: 25px;
+
+  .channelTop {
+
+    .channelHeader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .channelTitle {
+        display: flex;
+        justify-content: center;
+        //align-items: center;
+        flex-direction: column;
+      }
+    }
+
+    .channelDescription {
+      width: 720px;
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
+
+  .channelBottom {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .channelDateList {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      .channelDate {
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+
+    .channelList {
+      display: flex;
+      flex-direction: column;
+      margin-top: 15px;
+
+      .channelWrapper {
+        display: flex;
+        margin: 10px 0;
+
+        .channelTime {
+          width: 120px;
+        }
+      }
+    }
+  }
+}
