@@ -1,6 +1,30 @@
+@import "../../Global";
+
 .profile {
+  padding: 20px 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: aquamarine;
+  background-color: $lightColor;
+  flex-direction: column;
+  color: $primaryColor;
+
+  .profileWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .profileTitle {
+    font-size: 40px;
+    font-weight: 600;
+  }
+
+  .profileSubtitle {
+    margin: 15px 0;
+    font-size: 18px;
+    font-weight: 500;
+  }
 }
