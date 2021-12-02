@@ -1,7 +1,6 @@
 @import "../../Global";
 
 .category {
-  background-color: $lightColor;
   margin: 10px;
   border-radius: 15px;
   display: flex;
@@ -29,6 +28,10 @@
       width: 136px;
       height: 136px;
       background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.0), rgba(0, 0, 0, 1));
+    }
+
+    .linearActive {
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.0), rgb(237, 0, 140));
     }
 
     .categoryTitle {

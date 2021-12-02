@@ -10,7 +10,8 @@ export const Home = () => {
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState(null);
     const searchParams = ["title", "stbNumber"];
-    const [filterParam, setFilterParam] = useState(["All"]);
+    const filterCategoryParams = ["category", "language"];
+    const [filterParams, setFilterParams] = useState<Array<string>>([]);
 
     const HandleSearch = (e: string) => {
         const newData = data.filter((item) => {
@@ -26,8 +27,54 @@ export const Home = () => {
     };
 
     const HandleCategory = (e: string) => {
-        console.log(e);
-    }
+        const newData = data.filter((item) => {
+            return filterCategoryParams.some((newItem) => {
+                // @ts-ignore
+                return (item[newItem].toString().toLowerCase().indexOf(e.toLowerCase()) !== -1);
+            });
+        });
+        if (newData) {
+            // @ts-ignore
+            setFilteredData(newData);
+        }
+        // console.log(e);
+        //
+        // //  Add to filter
+        // if (!filterParams.includes(e)) {
+        //     setFilterParams([...filterParams, e]);
+        //     //-------------
+        //     const newData = data.filter((item) => {
+        //         return filterCategoryParams.some((newItem) => {
+        //             // @ts-ignore
+        //             console.log(newItem);
+        //             console.log(item);
+        //
+        //
+        //             // return (item[newItem].toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1);
+        //         })
+        //     });
+        //     if (newData) {
+        //         // @ts-ignore
+        //         setFilteredData(newData);
+        //     }
+        //     //-------------
+        //     //  Remove to filter
+        // } else {
+        //     setFilterParams(filterParams.filter((filter) => filter !== e));
+        // }
+
+        // console.log(temp);
+        // const newData = data.filter((item) => {
+        //     return filterParams.some((newItem) => {
+        //         // @ts-ignore
+        //         return (item[newItem].toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1);
+        //     });
+        // })
+        // if (newData) {
+        //     // @ts-ignore
+        //     setFilteredData(newData);
+        // }
+    };
 
     useEffect(() => {
         const fetchData = async () => {
