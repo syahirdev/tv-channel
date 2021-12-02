@@ -2,11 +2,32 @@ import "./Home.scss";
 import { Channel } from "../../components/channel/Channel";
 import { Profile } from "../../components/profile/Profile";
 import { Topbar } from "../../components/topbar/Topbar";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Header } from "../../components/header/Header";
 
 export const Home = () => {
     const [data, setData] = useState([]);
+    const [filteredData, setFilteredData] = useState(null);
+    const searchParams = ["title", "stbNumber"];
+    const [filterParam, setFilterParam] = useState(["All"]);
+
+    const HandleSearch = (e: string) => {
+        const newData = data.filter((item) => {
+            return searchParams.some((newItem) => {
+                // @ts-ignore
+                return (item[newItem].toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1);
+            });
+        });
+        if (newData) {
+            // @ts-ignore
+            setFilteredData(newData);
+        }
+    };
+
+    const HandleCategory = (e: string) => {
+        console.log(e);
+    }
 
     useEffect(() => {
         const fetchData = async () => {
@@ -20,10 +41,10 @@ export const Home = () => {
 
     return (
         <div className="home">
-            <Topbar/>
-            {/*<Header/>*/}
-            <Profile/>
-            <Channel data={data}/>
+            <Topbar HandleSearch={HandleSearch}/>
+            <Header/>
+            <Profile HandleCategory={HandleCategory}/>
+            <Channel data={filteredData ? filteredData : data}/>
         </div>
     );
 };

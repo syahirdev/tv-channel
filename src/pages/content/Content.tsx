@@ -18,7 +18,7 @@ export const Content = () => {
                 });
         };
         fetchData().then(() => console.log("200 OK"));
-    }, []);
+    }, [id]);
 
     return (
         <div className="content">

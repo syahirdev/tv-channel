@@ -1,21 +1,29 @@
 @import "../../Global";
 
 .topbar {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 35px 120px;
+  padding: 20px 120px;
   background-color: $lightColor;
   color: $textColor;
+  border-bottom: 1px solid $cardBorderColor;
 
   .topbarText {
     font-weight: 400;
     font-size: 18px;
     cursor: pointer;
     transition: $transition;
+    padding: 10px 20px;
+    border-radius: 100px;
 
     &:hover {
-      filter: brightness(150%);
+      background-color: $cardBorderColor;
     }
   }
 
@@ -23,7 +31,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
 
     .topbarLogo {
       width: 100px;
@@ -36,7 +44,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
 
     .topbarButton {
       color: $lightColor;
@@ -50,9 +58,36 @@
       }
     }
 
+    .searchInput {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 50px;
+      font-size: 18px;
+      outline: none;
+      display: none;
+      width: 450px;
+    }
+
+    .hideText {
+      display: none;
+    }
+
+    .searchActive {
+      display: block;
+    }
+
     .topbarIcon {
       color: $textColor;
       font-size: 25px;
+      cursor: pointer;
+      padding: 7px;
+      border-radius: 50%;
+      transition: all .3s ease;
+    }
+
+    .topbarIcon:hover, .iconActive {
+      color: $lightColor;
+      background-color: $primaryColor;
     }
   }
 }
