@@ -20,7 +20,7 @@ export const ChannelDetail = ({data}: any) => {
                     <img src={data.originalImage} alt="channelLogo" className="channelLogo"/>
                     <div className="channelTitle">
                         <span className="title">CH{data.stbNumber}</span>
-                        <span className="subtitle">{data.title}</span>
+                        <span className="subtitle primaryText">{data.title}</span>
                     </div>
                 </div>
                 <div className="channelDescription">

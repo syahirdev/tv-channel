@@ -6,3 +6,36 @@ $textSecondaryColor: #676767;
 $cardBorderColor: #d4d4d4;
 
 $transition: all .3s ease;
+
+$mobileWidth: 500px;
+$semiMobileWidth: 750px;
+$tabletWidth: 1000px;
+$largeTabletWidth: 1200px;
+
+span.primaryText {
+  color: $primaryColor;
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobileWidth}) {
+    @content
+  }
+}
+
+@mixin semimobile {
+  @media (max-width: #{$semiMobileWidth}) {
+    @content
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tabletWidth}) {
+    @content
+  }
+}
+
+@mixin largetablet {
+  @media (max-width: #{$largeTabletWidth}) {
+    @content
+  }
+}

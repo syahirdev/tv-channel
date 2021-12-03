@@ -8,23 +8,34 @@
   padding: 100px;
   gap: 25px;
 
-  .channelTop {
+  @include semimobile {
+    padding: 50px;
+  }
 
+  @include mobile {
+    padding: 25px;
+  }
+
+  .channelTop {
     .channelHeader {
       display: flex;
       justify-content: center;
       align-items: center;
+      font-weight: 500;
+
+      @include semimobile {
+        flex-direction: column;
+        gap: 10px;
+      }
 
       .channelTitle {
         display: flex;
         justify-content: center;
-        //align-items: center;
         flex-direction: column;
       }
     }
 
     .channelDescription {
-      width: 720px;
       text-align: center;
       margin-top: 20px;
     }
@@ -40,6 +51,7 @@
       justify-content: center;
       align-items: center;
       gap: 20px;
+      flex-wrap: wrap;
 
       .channelDate {
         font-size: 16px;

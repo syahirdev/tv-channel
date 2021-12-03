@@ -20,6 +20,14 @@ export const Topbar = ({HandleSearch}: any) => {
                 <div className="topbarText">Channel</div>
             </div>
             <div className="topbarRight">
+                <div className="hamburger" onClick={() => {
+                    // console.log(menu);
+                    // setMenu(!menu);
+                }}>
+                    <span className="line1"/>
+                    <span className="line1"/>
+                    <span className="line1"/>
+                </div>
                 <div className={`topbarText ${searchActive && "hideText"}`}>Signup</div>
                 <div className={`topbarText topbarButton ${searchActive && "hideText"}`}>Login</div>
                 <input
