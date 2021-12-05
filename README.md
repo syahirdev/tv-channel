@@ -2,14 +2,10 @@
 
 ## About
 
----
-
 Mini project app that display a list of tv channels and details of channel description using open source API, mobile
 responsive and built with React.
 
 ## Installation Guide
-
----
 
 ```
   $ git clone https://github.com/syahirdev/tv-channel.git
@@ -20,12 +16,9 @@ responsive and built with React.
 
 ## Demo
 
----
 You can view a live demo at [tv.syahir.dev](https://tv.syahir.dev/)
 
 ## Screenshots
-
----
 
 ### 1. Filter & Search
 
